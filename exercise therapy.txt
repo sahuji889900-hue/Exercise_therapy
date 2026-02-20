@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Electrotherapy MCQ for u motu..</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 20px;
+}
+.quiz-container {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2 {
+  text-align: center;
+}
+.question {
+  margin-bottom: 20px;
+}
+.option {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.option:hover {
+  background: #eef;
+}
+.correct {
+  background: #c8f7c5;
+  border-color: #2ecc71;
+}
+.wrong {
+  background: #f7c5c5;
+  border-color: #e74c3c;
+}
+.answer {
+  margin-top: 5px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<h2>Electrotherapy MCQs for u motu</h2>
+<p><b>Instructions:</b> Click an option to get instant answer..keep practising and ask me if u have any doubt</p>
+<div id="quiz"></div>
+</div>
+
+<script>
+/* ===============================
+   QUESTION BANK (ADD 100+ HERE)
+=============================== */
+const questionBank = [
+{
+  q: "Standing on toes is an example of which order lever?",
+  options: ["First order", "Second order", "Third order", "Fourth order"],
+  answer: 1
+},
+{
+  q: "Knee flexion in prone lying is an example of",
+  options: [
+    "First order lever",
+    "Second order lever",
+    "Third order lever",
+    "Fourth order lever"
+  ],
+  answer: 2
+},
+{
+  q: "Second order levers are levers of",
+  options: ["Speed", "Strength", "Stability", "Coordination"],
+  answer: 1
+},
+{
+  q: "Most movements in the human body occur through",
+  options: [
+    "First order levers",
+    "Second order levers",
+    "Third order levers",
+    "Fourth order levers"
+  ],
+  answer: 2
+},
+{
+  q: "Muscle is most efficient in which range of movement?",
+  options: [
+    "Outer range",
+    "Outer part of middle range",
+    "Inner part of middle range",
+    "Inner range"
+  ],
+  answer: 2
+},
+{
+  q: "Active fixation can be achieved by",
+  options: [
+    "Co-contraction of muscles",
+    "Use of straps",
+    "Manual pressure",
+    "Use of splints"
+  ],
+  answer: 0
+},
+{
+  q: "Passive fixation is provided by",
+  options: [
+    "Muscle contraction",
+    "Manual support",
+    "Co-contraction",
+    "Gravity"
+  ],
+  answer: 1
+},
+{
+  q: "Low resistance, high repetition exercise is mainly used to improve",
+  options: ["Strength", "Endurance", "Speed", "Coordination"],
+  answer: 1
+},
+{
+  q: "High resistance, low repetition exercise is mainly used to improve",
+  options: ["Endurance", "Strength", "Flexibility", "Coordination"],
+  answer: 1
+},
+{
+  q: "Isometric exercises produce",
+  options: [
+    "Joint movement",
+    "Change in muscle length",
+    "No joint movement",
+    "High coordination"
+  ],
+  answer: 2
+},
+{
+  q: "Isotonic exercises involve",
+  options: [
+    "No muscle shortening",
+    "Constant muscle length",
+    "Joint movement",
+    "No resistance"
+  ],
+  answer: 2
+},
+{
+  q: "Isokinetic exercise is performed with",
+  options: [
+    "Constant speed",
+    "Constant resistance",
+    "No resistance",
+    "Free movement"
+  ],
+  answer: 0
+},
+{
+  q: "Concentric contraction occurs when muscle",
+  options: [
+    "Lengthens while contracting",
+    "Shortens while contracting",
+    "Contracts without movement",
+    "Relaxes completely"
+  ],
+  answer: 1
+},
+{
+  q: "Eccentric contraction occurs when muscle",
+  options: [
+    "Shortens",
+    "Lengthens under tension",
+    "Relaxes",
+    "Does not work"
+  ],
+  answer: 1
+},
+{
+  q: "Closed kinetic chain exercise involves",
+  options: [
+    "Free distal segment",
+    "Fixed distal segment",
+    "No joint movement",
+    "Only open chain"
+  ],
+  answer: 1
+},
+{
+  q: "Open kinetic chain exercise involves",
+  options: [
+    "Fixed distal segment",
+    "Weight-bearing only",
+    "Free distal segment",
+    "No muscle activity"
+  ],
+  answer: 2
+},
+{
+  q: "Proprioceptive neuromuscular facilitation mainly aims to improve",
+  options: [
+    "Muscle bulk",
+    "Coordination and control",
+    "Endurance",
+    "Joint mobility only"
+  ],
+  answer: 1
+},
+{
+  q: "Rhythmic stabilization technique is used to improve",
+  options: [
+    "Flexibility",
+    "Strength",
+    "Stability",
+    "Speed"
+  ],
+  answer: 2
+},
+{
+  q: "Frenkel’s exercises are indicated in",
+  options: [
+    "Spastic paralysis",
+    "Flaccid paralysis",
+    "Cerebellar ataxia",
+    "Parkinson’s disease"
+  ],
+  answer: 2
+},
+{
+  q: "Codman’s exercises are also known as",
+  options: [
+    "Resisted exercises",
+    "Pendular exercises",
+    "Isometric exercises",
+    "PNF exercises"
+  ],
+  answer: 1
+},
+{
+  q: "Range of motion performed entirely by the patient without assistance is called",
+  options: [
+    "Passive ROM",
+    "Active ROM",
+    "Active assisted ROM",
+    "Resisted ROM"
+  ],
+  answer: 1
+},
+{
+  q: "Active assisted range of motion exercise is indicated when",
+  options: [
+    "Muscle power is normal",
+    "Muscle power is absent",
+    "Muscle power is weak",
+    "Joint is ankylosed"
+  ],
+  answer: 2
+},
+{
+  q: "Passive range of motion exercise is mainly used to",
+  options: [
+    "Increase muscle strength",
+    "Maintain joint mobility",
+    "Improve coordination",
+    "Increase endurance"
+  ],
+  answer: 1
+},
+{
+  q: "Goniometer is used to measure",
+  options: [
+    "Muscle power",
+    "Joint range of motion",
+    "Muscle tone",
+    "Coordination"
+  ],
+  answer: 1
+},
+{
+  q: "The axis of goniometer is placed over the",
+  options: [
+    "Moving segment",
+    "Fixed segment",
+    "Joint axis",
+    "Muscle belly"
+  ],
+  answer: 2
+},
+{
+  q: "Stretching exercises are primarily used to",
+  options: [
+    "Increase muscle strength",
+    "Increase muscle length",
+    "Improve endurance",
+    "Improve coordination"
+  ],
+  answer: 1
+},
+{
+  q: "Static stretching involves",
+  options: [
+    "Bouncing movements",
+    "Holding the stretch",
+    "Rapid movements",
+    "Resisted movements"
+  ],
+  answer: 1
+},
+{
+  q: "Ballistic stretching is characterized by",
+  options: [
+    "Slow controlled movement",
+    "Holding stretch",
+    "Bouncing movements",
+    "Isometric contraction"
+  ],
+  answer: 2
+},
+{
+  q: "Passive insufficiency occurs when",
+  options: [
+    "Agonist is weak",
+    "Antagonist limits movement",
+    "Prime mover is paralyzed",
+    "Joint capsule is tight"
+  ],
+  answer: 1
+},
+{
+  q: "An example of passive insufficiency is",
+  options: [
+    "Hip flexion with knee extension",
+    "Knee extension with ankle plantarflexion",
+    "Hip extension with knee flexion",
+    "Shoulder abduction with elbow flexion"
+  ],
+  answer: 0
+},
+{
+  q: "Active insufficiency occurs when",
+  options: [
+    "Agonist cannot produce full force",
+    "Antagonist is weak",
+    "Joint range is excessive",
+    "Muscle is fully relaxed"
+  ],
+  answer: 0
+},
+{
+  q: "An example of active insufficiency is",
+  options: [
+    "Making a fist with wrist flexion",
+    "Hip flexion with knee extension",
+    "Ankle dorsiflexion with knee flexion",
+    "Shoulder abduction with elbow extension"
+  ],
+  answer: 0
+},
+{
+  q: "Normal end-feel at the elbow joint during flexion is",
+  options: [
+    "Hard",
+    "Firm",
+    "Soft",
+    "Springy"
+  ],
+  answer: 2
+},
+{
+  q: "A hard end-feel is normally felt in",
+  options: [
+    "Knee flexion",
+    "Elbow extension",
+    "Hip flexion",
+    "Ankle dorsiflexion"
+  ],
+  answer: 1
+},
+{
+  q: "Springy end-feel usually indicates",
+  options: [
+    "Muscle tightness",
+    "Normal joint",
+    "Loose body within joint",
+    "Ligament stretch"
+  ],
+  answer: 2
+},
+{
+  q: "Muscle power grading commonly used in physiotherapy is",
+  options: [
+    "0–3 scale",
+    "1–10 scale",
+    "0–5 scale",
+    "A–E scale"
+  ],
+  answer: 2
+},
+{
+  q: "Grade 3 muscle power indicates",
+  options: [
+    "Movement with gravity eliminated",
+    "Full movement against gravity",
+    "Movement against resistance",
+    "No contraction"
+  ],
+  answer: 1
+},
+{
+  q: "Grade 4 muscle power indicates",
+  options: [
+    "Movement against gravity only",
+    "Movement with gravity eliminated",
+    "Movement against some resistance",
+    "Normal strength"
+  ],
+  answer: 2
+},
+{
+  q: "Grade 5 muscle power represents",
+  options: [
+    "Trace contraction",
+    "Poor strength",
+    "Movement against gravity",
+    "Normal strength"
+  ],
+  answer: 3
+},
+{
+  q: "Manual muscle testing is primarily used to assess",
+  options: [
+    "Joint range",
+    "Muscle strength",
+    "Muscle tone",
+    "Endurance"
+  ],
+  answer: 1
+},
+{
+  q: "Progressive resistance exercise (PRE) primarily aims to improve",
+  options: ["Flexibility", "Strength", "Coordination", "Speed"],
+  answer: 1
+},
+{
+  q: "The Delorme technique of PRE is based on",
+  options: [
+    "Constant resistance",
+    "10 repetition maximum",
+    "Progressively increasing resistance",
+    "Decreasing resistance"
+  ],
+  answer: 2
+},
+{
+  q: "In Delorme’s technique, the last set is performed with",
+  options: ["50% of 10 RM", "75% of 10 RM", "100% of 10 RM", "125% of 10 RM"],
+  answer: 2
+},
+{
+  q: "Oxford technique of PRE differs from Delorme’s technique because it uses",
+  options: [
+    "Increasing resistance",
+    "Constant resistance",
+    "Decreasing resistance",
+    "Isometric contraction"
+  ],
+  answer: 2
+},
+{
+  q: "Circuit training is best described as",
+  options: [
+    "Single exercise repeated many times",
+    "Series of exercises performed in sequence",
+    "Only endurance training",
+    "Only strength training"
+  ],
+  answer: 1
+},
+{
+  q: "The main advantage of circuit training is that it",
+  options: [
+    "Requires minimal equipment",
+    "Improves both strength and endurance",
+    "Is suitable only for athletes",
+    "Avoids fatigue"
+  ],
+  answer: 1
+},
+{
+  q: "Endurance training is characterized by",
+  options: [
+    "High resistance, low repetitions",
+    "Low resistance, high repetitions",
+    "High speed movements",
+    "Isometric contractions only"
+  ],
+  answer: 1
+},
+{
+  q: "Strength training is best achieved by",
+  options: [
+    "Low resistance, high repetitions",
+    "High resistance, low repetitions",
+    "Passive movements",
+    "Ballistic stretching"
+  ],
+  answer: 1
+},
+{
+  q: "Functional exercises are designed to",
+  options: [
+    "Isolate a single muscle",
+    "Improve cosmetic appearance",
+    "Mimic activities of daily living",
+    "Increase joint range only"
+  ],
+  answer: 2
+},
+{
+  q: "Closed kinetic chain exercises are especially useful for",
+  options: [
+    "Non–weight bearing training",
+    "Improving joint stability",
+    "Isolated muscle strengthening",
+    "Passive mobilization"
+  ],
+  answer: 1
+},
+{
+  q: "Open kinetic chain exercises mainly emphasize",
+  options: [
+    "Joint compression",
+    "Joint stability",
+    "Isolated muscle action",
+    "Weight bearing"
+  ],
+  answer: 2
+},
+{
+  q: "The Borg scale is used to assess",
+  options: [
+    "Pain intensity",
+    "Perceived exertion",
+    "Muscle power",
+    "Joint mobility"
+  ],
+  answer: 1
+},
+{
+  q: "Aerobic exercises primarily improve",
+  options: [
+    "Anaerobic capacity",
+    "Cardiorespiratory endurance",
+    "Joint stability",
+    "Muscle bulk"
+  ],
+  answer: 1
+},
+{
+  q: "Anaerobic exercises are characterized by",
+  options: [
+    "Long duration, low intensity",
+    "Short duration, high intensity",
+    "Continuous oxygen supply",
+    "Relaxation training"
+  ],
+  answer: 1
+},
+{
+  q: "Warm-up exercises are important because they",
+  options: [
+    "Cause fatigue",
+    "Increase risk of injury",
+    "Prepare muscles and joints for activity",
+    "Reduce muscle strength"
+  ],
+  answer: 2
+},
+{
+  q: "Cool-down exercises mainly help to",
+  options: [
+    "Increase muscle tone",
+    "Reduce lactic acid buildup",
+    "Improve joint instability",
+    "Increase heart rate"
+  ],
+  answer: 1
+},
+{
+  q: "Interval training involves",
+  options: [
+    "Continuous exercise at one intensity",
+    "Alternating periods of work and rest",
+    "Only strength training",
+    "Only stretching"
+  ],
+  answer: 1
+},
+{
+  q: "The main goal of balance training is to improve",
+  options: [
+    "Muscle bulk",
+    "Coordination and postural control",
+    "Joint range of motion",
+    "Pain tolerance"
+  ],
+  answer: 1
+},
+{
+  q: "Proprioceptive training is especially useful in",
+  options: [
+    "Joint instability",
+    "Muscle hypertrophy",
+    "Cardiac rehabilitation",
+    "Respiratory training"
+  ],
+  answer: 0
+},
+{
+  q: "The principle of specificity in exercise therapy means",
+  options: [
+    "All exercises have same effect",
+    "Training should match the desired outcome",
+    "Only resistance training is useful",
+    "Only endurance training is useful"
+  ],
+  answer: 1
+},
+{
+  q: "Gait is best defined as",
+  options: [
+    "Movement of joints",
+    "Pattern of walking",
+    "Speed of walking",
+    "Balance during standing"
+  ],
+  answer: 1
+},
+{
+  q: "The phase of gait in which the foot is in contact with the ground is called",
+  options: [
+    "Swing phase",
+    "Stance phase",
+    "Double support phase",
+    "Terminal swing"
+  ],
+  answer: 1
+},
+{
+  q: "Normal gait cycle consists of stance phase of approximately",
+  options: ["40%", "50%", "60%", "70%"],
+  answer: 2
+},
+{
+  q: "Double support phase occurs when",
+  options: [
+    "Both feet are on the ground",
+    "Only one foot touches the ground",
+    "Neither foot is on the ground",
+    "Heel strikes the ground"
+  ],
+  answer: 0
+},
+{
+  q: "Trendelenburg gait is commonly seen in weakness of",
+  options: [
+    "Quadriceps",
+    "Hamstrings",
+    "Hip abductors",
+    "Hip flexors"
+  ],
+  answer: 2
+},
+{
+  q: "High stepping gait is typically seen in",
+  options: [
+    "Parkinson’s disease",
+    "Foot drop",
+    "Cerebellar ataxia",
+    "Hip arthritis"
+  ],
+  answer: 1
+},
+{
+  q: "Circumduction gait is usually associated with",
+  options: [
+    "Hemiplegia",
+    "Paraplegia",
+    "Foot drop",
+    "Ataxia"
+  ],
+  answer: 0
+},
+{
+  q: "Posture is best described as",
+  options: [
+    "Movement of joints",
+    "Position of body segments",
+    "Muscle contraction",
+    "Joint stability"
+  ],
+  answer: 1
+},
+{
+  q: "The ideal posture places minimum stress on",
+  options: [
+    "Muscles only",
+    "Ligaments only",
+    "Bones only",
+    "Musculoskeletal system"
+  ],
+  answer: 3
+},
+{
+  q: "Forward head posture commonly leads to tightness of",
+  options: [
+    "Upper trapezius",
+    "Sternocleidomastoid",
+    "Suboccipital muscles",
+    "All of the above"
+  ],
+  answer: 3
+},
+{
+  q: "Ergonomics deals with",
+  options: [
+    "Exercise prescription",
+    "Design of work environment",
+    "Postural deformities",
+    "Sports training"
+  ],
+  answer: 1
+},
+{
+  q: "Proper sitting posture helps to",
+  options: [
+    "Increase fatigue",
+    "Reduce stress on spine",
+    "Increase joint load",
+    "Reduce muscle activity"
+  ],
+  answer: 1
+},
+{
+  q: "Breathing exercises are mainly used to improve",
+  options: [
+    "Joint mobility",
+    "Muscle strength",
+    "Pulmonary ventilation",
+    "Coordination"
+  ],
+  answer: 2
+},
+{
+  q: "Diaphragmatic breathing primarily encourages the use of",
+  options: [
+    "Accessory muscles",
+    "Intercostal muscles",
+    "Diaphragm",
+    "Abdominal muscles only"
+  ],
+  answer: 2
+},
+{
+  q: "Pursed lip breathing is especially useful in patients with",
+  options: [
+    "Asthma",
+    "COPD",
+    "Pneumonia",
+    "Restrictive lung disease"
+  ],
+  answer: 1
+},
+{
+  q: "Segmental breathing exercises are used to improve",
+  options: [
+    "General endurance",
+    "Localized lung expansion",
+    "Muscle strength",
+    "Joint stability"
+  ],
+  answer: 1
+},
+{
+  q: "Relaxation techniques are primarily aimed at reducing",
+  options: [
+    "Muscle strength",
+    "Joint mobility",
+    "Muscle tension and stress",
+    "Cardiac output"
+  ],
+  answer: 2
+},
+{
+  q: "Progressive muscle relaxation was developed by",
+  options: [
+    "Bobath",
+    "Jacobson",
+    "Rood",
+    "Frenkel"
+  ],
+  answer: 1
+},
+{
+  q: "Relaxation exercises are especially beneficial in",
+  options: [
+    "Acute fractures",
+    "Spastic conditions",
+    "Joint ankylosis",
+    "Muscle hypertrophy"
+  ],
+  answer: 1
+},
+{
+  q: "Stretching combined with relaxation is most useful for managing",
+  options: [
+    "Muscle spasm",
+    "Joint instability",
+    "Muscle weakness",
+    "Edema"
+  ],
+  answer: 0
+},
+{
+  q: "The main objective of exercise therapy is to",
+  options: [
+    "Provide pain relief only",
+    "Restore function and independence",
+    "Replace surgical treatment",
+    "Increase muscle bulk only"
+  ],
+  answer: 1
+},
+{
+  q: "Exercise prescription should always be based on",
+  options: [
+    "Therapist preference",
+    "Patient diagnosis and functional needs",
+    "Available equipment",
+    "Fixed protocol"
+  ],
+  answer: 1
+},
+{
+  q: "In pediatric patients, exercise therapy should primarily focus on",
+  options: [
+    "Heavy resistance training",
+    "Play-based functional activities",
+    "Isometric exercises only",
+    "Passive movements only"
+  ],
+  answer: 1
+},
+{
+  q: "In geriatric patients, exercise programs should emphasize",
+  options: [
+    "High intensity training",
+    "Balance, flexibility, and safety",
+    "Maximum resistance",
+    "Speed training"
+  ],
+  answer: 1
+},
+{
+  q: "Bed mobility exercises are mainly prescribed to",
+  options: [
+    "Increase endurance",
+    "Prevent pressure sores and stiffness",
+    "Improve balance",
+    "Increase muscle bulk"
+  ],
+  answer: 1
+},
+{
+  q: "Early mobilization after surgery helps to prevent",
+  options: [
+    "Joint mobility",
+    "Muscle soreness",
+    "Complications like DVT",
+    "Bone healing"
+  ],
+  answer: 2
+},
+{
+  q: "Ambulation training usually begins with",
+  options: [
+    "Independent walking",
+    "Parallel bars",
+    "Stair climbing",
+    "Running"
+  ],
+  answer: 1
+},
+{
+  q: "Use of walking aids primarily helps to",
+  options: [
+    "Increase speed of walking",
+    "Improve balance and reduce load",
+    "Replace muscle strength",
+    "Correct deformity"
+  ],
+  answer: 1
+},
+{
+  q: "Crutches are commonly prescribed to",
+  options: [
+    "Increase endurance",
+    "Reduce weight bearing",
+    "Improve posture",
+    "Strengthen upper limbs"
+  ],
+  answer: 1
+},
+{
+  q: "Three-point gait pattern is commonly used in",
+  options: [
+    "Bilateral lower limb weakness",
+    "Non–weight bearing of one limb",
+    "Parkinson’s disease",
+    "Ataxia"
+  ],
+  answer: 1
+},
+{
+  q: "Stair climbing training usually follows the rule",
+  options: [
+    "Up with the weak, down with the strong",
+    "Up with the strong, down with the weak",
+    "Same leg first always",
+    "No specific rule"
+  ],
+  answer: 1
+},
+{
+  q: "Sports rehabilitation exercises mainly aim to",
+  options: [
+    "Prevent pain only",
+    "Restore strength, flexibility, and performance",
+    "Avoid functional activities",
+    "Promote rest"
+  ],
+  answer: 1
+},
+{
+  q: "Plyometric exercises are best described as",
+  options: [
+    "Slow controlled movements",
+    "Stretch–shortening cycle activities",
+    "Isometric contractions",
+    "Passive exercises"
+  ],
+  answer: 1
+},
+{
+  q: "Agility training is especially important in",
+  options: [
+    "Bedridden patients",
+    "Athletes",
+    "Acute fracture cases",
+    "Post-operative rest phase"
+  ],
+  answer: 1
+},
+{
+  q: "Core stability exercises primarily strengthen",
+  options: [
+    "Upper limb muscles",
+    "Lower limb muscles",
+    "Trunk and deep stabilizing muscles",
+    "Neck muscles only"
+  ],
+  answer: 2
+},
+{
+  q: "Functional independence is best assessed by",
+  options: [
+    "Muscle power grading",
+    "Range of motion",
+    "Ability to perform activities of daily living",
+    "Pain scale"
+  ],
+  answer: 2
+},
+{
+  q: "Home exercise programs are important because they",
+  options: [
+    "Replace supervised therapy",
+    "Ensure continuity of rehabilitation",
+    "Are optional for patients",
+    "Increase dependency"
+  ],
+  answer: 1
+},
+{
+  q: "Patient education in exercise therapy helps to",
+  options: [
+    "Reduce therapist workload only",
+    "Improve compliance and outcomes",
+    "Avoid exercises",
+    "Increase pain"
+  ],
+  answer: 1
+},
+{
+  q: "Overtraining during exercise therapy may result in",
+  options: [
+    "Faster recovery",
+    "Muscle fatigue and injury",
+    "Improved endurance",
+    "Better coordination"
+  ],
+  answer: 1
+},
+{
+  q: "The most important principle to follow during exercise therapy is",
+  options: [
+    "Maximum intensity",
+    "Progression according to patient tolerance",
+    "Fixed exercise schedule",
+    "Ignoring pain"
+  ],
+  answer: 1
+}
+];
+
+/* ===============================
+   SETTINGS
+=============================== */
+const QUESTIONS_TO_SHOW = 5;
+
+/* ===============================
+   SHUFFLE (SAFE – NO MUTATION)
+=============================== */
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+/* ===============================
+   LOAD QUIZ (SAFE VERSION)
+=============================== */
+const shuffled = [...questionBank];   // ✅ COPY, do NOT mutate original
+shuffle(shuffled);
+
+const selected = shuffled.slice(0, QUESTIONS_TO_SHOW);
+const quiz = document.getElementById("quiz");
+
+selected.forEach((item, index) => {
+  let html = `
+    <div class="question">
+      <p><b>${index + 1}. ${item.q}</b></p>
+  `;
+
+  item.options.forEach((opt, i) => {
+    html += `<div class="option" onclick="check(this, ${i === item.answer})">${opt}</div>`;
+  });
+
+  html += `<div class="answer"></div></div>`;
+  quiz.innerHTML += html;
+});
+
+/* ===============================
+   INSTANT FEEDBACK
+=============================== */
+function check(element, isCorrect) {
+  const options = element.parentElement.querySelectorAll('.option');
+  const answerBox = element.parentElement.querySelector('.answer');
+
+  options.forEach(opt => opt.onclick = null);
+
+  if (isCorrect) {
+    element.classList.add('correct');
+    answerBox.innerHTML = "✅ Correct";
+  } else {
+    element.classList.add('wrong');
+    answerBox.innerHTML = "❌ Wrong";
+    options.forEach(opt => {
+      if (opt.getAttribute("onclick")?.includes("true")) {
+        opt.classList.add('correct');
+      }
+    });
+  }
+}
+</script>
+</body>
+</html>
+
+
+
+
+
